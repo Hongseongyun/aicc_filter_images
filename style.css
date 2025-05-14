@@ -45,3 +45,126 @@ body {
 .filter-btns .filter-btn.active {
   background: #609687;
 }
+
+/* Filter Image Box Style */
+.filter-images {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.filter-images .filter-image {
+  width: 25%;
+  padding: 0.25rem;
+  animation: scale 0.3s 1; /* 0.3초 동안 한 번 실행 */
+}
+
+.filter-images .filter-image.show {
+  display: block;
+}
+
+.filter-images .filter-image.hide {
+  display: none;
+}
+
+@keyframes scale {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.filter-images .filter-image span {
+  background: #316764;
+  padding: 0.25rem;
+  display: block;
+  border: 1px solid #fff;
+  position: relative;
+}
+
+.filter-images .filter-image span::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  opacity: 0;
+}
+
+.filter-images .filter-image:hover span::after {
+  opacity: 0.3;
+}
+
+.filter-images .filter-image span img {
+  width: 100%;
+  display: block;
+}
+
+/* Light Box Style */
+.light-box {
+  width: 50%;
+  position: fixed;
+  background-color: #316764;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  padding: 1rem;
+  border-radius: 0.25rem;
+  animation: box-scale 0.3s 1;
+  /* overlay 간섭 안 받게 */
+  z-index: 999;
+  display: none;
+}
+
+@keyframes box-scale {
+  from {
+    transform: translate(-50%, -50%) scale(0.3);
+  }
+  to {
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+.light-box .light-box-text {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 1rem;
+}
+
+.light-box .light-box-text .title {
+  display: flex;
+  color: #fff;
+  gap: 0.75rem;
+}
+.light-box .light-box-text .close {
+  font-size: 0.75rem;
+  padding: 0.25rem 0.75rem;
+}
+
+.light-box .light-box-image {
+  border: 1px solid #fff;
+  padding: 0.25rem;
+  border-radius: 0.25rem;
+}
+
+.light-box img {
+  width: 100%;
+  display: block;
+}
+
+/* Overlay Style */
+
+.overlay {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  left: 0;
+  top: 0;
+  background: #000;
+  opacity: 0.4;
+  display: none;
+}
